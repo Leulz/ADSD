@@ -32,7 +32,11 @@ public class LibrarySubsystem {
 		Sim_system.link_ports("VirtualIndex", "HumanitiesOut", "HumanitiesVirtualLib", "In");
 		Sim_system.link_ports("VirtualIndex", "ComputerOut", "ComputerVirtualLib", "In");
 		Sim_system.link_ports("VirtualIndex", "MiscOut", "MiscVirtualLib", "In");
-		
+
+		Sim_system.set_transient_condition(Sim_system.TIME_ELAPSED, 100000);
+		Sim_system.set_termination_condition(Sim_system.EVENTS_COMPLETED,
+				"CentralLibrary", 0, 100, false);
+		Sim_system.set_report_detail(true, false);
 		Sim_system.set_trace_detail(false, true, true);
 		
 		Sim_system.run();
