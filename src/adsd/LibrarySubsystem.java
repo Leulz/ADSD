@@ -33,6 +33,8 @@ public class LibrarySubsystem {
 		Sim_system.link_ports("VirtualIndex", "ComputerOut", "ComputerVirtualLib", "In");
 		Sim_system.link_ports("VirtualIndex", "MiscOut", "MiscVirtualLib", "In");
 		
+		Sim_system.set_trace_detail(false, true, true);
+		
 		Sim_system.run();
 	}
 }
