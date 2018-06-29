@@ -1,0 +1,5 @@
+*.class
+.classpath
+.project
+sim_report
+sim_trace
