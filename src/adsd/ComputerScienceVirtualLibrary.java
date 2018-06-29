@@ -1,9 +1,6 @@
 package adsd;
 
-import eduni.simjava.Sim_entity;
-import eduni.simjava.Sim_event;
-import eduni.simjava.Sim_port;
-import eduni.simjava.Sim_system;
+import eduni.simjava.*;
 import eduni.simjava.distributions.Sim_normal_obj;
 import eduni.simjava.distributions.Sim_random_obj;
 
@@ -11,6 +8,8 @@ public class ComputerScienceVirtualLibrary extends Sim_entity {
 	private Sim_port in, out;
 	private Sim_normal_obj delay;
 	private Sim_random_obj prob;
+
+	Sim_stat stat;
 
 	public ComputerScienceVirtualLibrary(String name, double delayMean, double delayVariance) {
 		super(name);
@@ -26,6 +25,10 @@ public class ComputerScienceVirtualLibrary extends Sim_entity {
 		
 		add_generator(delay);
 		add_generator(prob);
+
+		stat = new Sim_stat();
+		stat.add_measure(Sim_stat.UTILISATION);
+		set_stat(stat);
 	}
 
 	public void body() {
